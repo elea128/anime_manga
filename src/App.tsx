@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EditEvent from "./components/EditEvent";
-import NotFoundPage from './components/NotFoundPage';
+import NotFoundPage from "./components/NotFoundPage";
 
 const App = () => (
   <BrowserRouter>
