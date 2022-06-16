@@ -1,9 +1,9 @@
 export type Event = {
-    id: string;
+  id: string;
 } & EventDescription;
 
 export type EventDescription = {
-    name: string;
-    description: string;
-    adress: string;
+  name: string;
+  description: string;
+  adress: string;
 };

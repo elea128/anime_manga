@@ -1,9 +1,8 @@
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import EditEvent from './components/EditEvent'
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import EditEvent from "./components/EditEvent";
 
 const App = () => (
-
   <BrowserRouter>
     <div>
       <Routes>
@@ -11,6 +10,6 @@ const App = () => (
       </Routes>
     </div>
   </BrowserRouter>
-)
+);
 
-export default App
+export default App;
