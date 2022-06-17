@@ -1,87 +1,52 @@
 import React, { useReducer } from "react";
 import { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { getEvent, deleteEvent } from "../api/evt";
-import { EventDescription, Event } from "../api/types";
-import Field from "../private/Field";
+import { useParams } from "react-router-dom";
+import { getFaq } from "../api/faq";
+import { FaqDescription, Faq } from "../api/types";
 
-type FormEvent =
-  | React.ChangeEvent<HTMLTextAreaElement>
-  | React.ChangeEvent<HTMLInputElement>
-  | React.ChangeEvent<HTMLSelectElement>;
+type FormData = { question: string; value: string | undefined | Number };
 
-type FormData = { name: string; value: string | undefined | Number };
-
-const formReducer = (state: Event | EventDescription, event: FormData) => {
+const formReducer = (state: Faq | FaqDescription, faq: FormData) => {
   return {
     ...state,
-    [event.name]: event.value,
+    [faq.question]: faq.value,
   };
 };
 
-const EditEvent = () => {
+const EditFaq = () => {
   const [formData, setFormData] = useReducer(
     formReducer,
-    {} as Event | EventDescription
+    {} as Faq | FaqDescription
   );
   let { id } = useParams(); // event id from url
-  const navigate = useNavigate(); // create a navigate function instance
 
-  async function _getEvent(id: number) {
-    const data = await getEvent(id);
+  async function _getFaq(id: number) {
+    const data = await getFaq(id);
     convertToFormData(data);
   }
   useEffect(() => {
     //chaquef fois que l'id change
-    _getEvent(Number(id));
+    _getFaq(Number(id));
   }, [id]);
 
-  async function handleAddOrCreateEvent(
-    event: React.FormEvent<HTMLFormElement>
-  ) {
-    // remove default reloading page
-    event.preventDefault();
-
-    // back to Home
-    navigate("/");
-  }
-
-  function handleChange(event: FormEvent) {
-    //
-    const value =
-      event.target.name === "userId"
-        ? Number(event.target.value)
-        : event.target.value;
-    setFormData({
-      name: event.target.name,
-      value,
-    });
-  }
-
-  async function handleDeleteEvent() {
-    // back to Home
-    await deleteEvent(Number(id));
-    navigate("/");
-  }
-
-  function convertToFormData(event: Event): void {
+  function convertToFormData(faq: Faq): void {
     // helper to convert event data into formData
     // use it before set formData with API data
     // ex: convertToFormData(data):
-    (Object.keys(event) as Array<keyof typeof event>).map((key) => {
+    (Object.keys(faq) as Array<keyof typeof faq>).map((key) => {
       setFormData({
-        name: key,
-        value: event[key],
+        question: key,
+        value: faq[key],
       });
     });
   }
 
   return (
     <>
-      <form className="event-form" onSubmit={handleAddOrCreateEvent}>
+      {/* <form className="faq-form" onSubmit={handleAddOrCreateEvent}>
         <Field label="Nom de l'évènement">
           <input
-            name="Name"
+            name="name"
             className="input"
             type="text"
             placeholder="Nom de l'évènement"
@@ -131,9 +96,20 @@ const EditEvent = () => {
             </Link>
           </p>
         </div>
-      </form>
+      </form> */}
+
+      {/* Retourner seulement les valeurs de chaque faq */}
+      <div>
+        <h3>Question</h3>
+        <p>{formData.question}</p>
+      </div>
+
+      <div>
+        <h3>Réponse</h3>
+        <p>{formData.reponse}</p>
+      </div>
     </>
   );
 };
 
-export default EditEvent;
+export default EditFaq;

@@ -1,14 +1,8 @@
 import React, { useReducer } from "react";
 import { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { getEvent, deleteEvent } from "../api/evt";
+import { useParams } from "react-router-dom";
+import { getEvent } from "../api/evt";
 import { EventDescription, Event } from "../api/types";
-import Field from "../private/Field";
-
-type FormEvent =
-  | React.ChangeEvent<HTMLTextAreaElement>
-  | React.ChangeEvent<HTMLInputElement>
-  | React.ChangeEvent<HTMLSelectElement>;
 
 type FormData = { name: string; value: string | undefined | Number };
 
@@ -25,7 +19,6 @@ const EditEvent = () => {
     {} as Event | EventDescription
   );
   let { id } = useParams(); // event id from url
-  const navigate = useNavigate(); // create a navigate function instance
 
   async function _getEvent(id: number) {
     const data = await getEvent(id);
@@ -35,34 +28,6 @@ const EditEvent = () => {
     //chaquef fois que l'id change
     _getEvent(Number(id));
   }, [id]);
-
-  async function handleAddOrCreateEvent(
-    event: React.FormEvent<HTMLFormElement>
-  ) {
-    // remove default reloading page
-    event.preventDefault();
-
-    // back to Home
-    navigate("/");
-  }
-
-  function handleChange(event: FormEvent) {
-    //
-    const value =
-      event.target.name === "userId"
-        ? Number(event.target.value)
-        : event.target.value;
-    setFormData({
-      name: event.target.name,
-      value,
-    });
-  }
-
-  async function handleDeleteEvent() {
-    // back to Home
-    await deleteEvent(Number(id));
-    navigate("/");
-  }
 
   function convertToFormData(event: Event): void {
     // helper to convert event data into formData
@@ -78,10 +43,10 @@ const EditEvent = () => {
 
   return (
     <>
-      <form className="event-form" onSubmit={handleAddOrCreateEvent}>
+      {/* <form className="event-form" onSubmit={handleAddOrCreateEvent}>
         <Field label="Nom de l'évènement">
           <input
-            name="Name"
+            name="name"
             className="input"
             type="text"
             placeholder="Nom de l'évènement"
@@ -131,7 +96,23 @@ const EditEvent = () => {
             </Link>
           </p>
         </div>
-      </form>
+      </form> */}
+
+      {/* Retourner seulement les valeurs de chaque event */}
+      <div>
+        <h3>Nom de l'event</h3>
+        <p>{formData.name}</p>
+      </div>
+
+      <div>
+        <h3>Description de l'event</h3>
+        <p>{formData.description}</p>
+      </div>
+
+      <div>
+        <h3>Adresse de l'event</h3>
+        <p>{formData.adress}</p>
+      </div>
     </>
   );
 };

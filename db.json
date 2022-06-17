@@ -1,16 +1,28 @@
 {
-    "event": [
-        {
-            "id": 1,
-            "Name": "gdtg",
-            "description": "zkfjnkfbkjef",
-            "adress": "zrjgngjnzrg"
-        },
-        {
-            "id": 2,
-            "Name": "gfefzdtg",
-            "description": "zkfjnkfbkjef",
-            "adress": "zrjgngjnzrg"
-        }
-    ]
+  "event": [
+    {
+      "id": 1,
+      "name": "name 1",
+      "description": "desc 1",
+      "adress": "adresse du premier"
+    },
+    {
+      "id": 2,
+      "name": "Name 2",
+      "description": "desc 2",
+      "adress": "adresse du deuxieme"
+    }
+  ],
+  "faq": [
+    {
+      "id": 1,
+      "question": "question 1",
+      "reponse": "réponse 1"
+    },
+    {
+      "id": 2,
+      "question": "question 2",
+      "reponse": "réponse 2"
+    }
+  ]
 }

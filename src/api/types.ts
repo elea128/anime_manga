@@ -7,3 +7,12 @@ export type EventDescription = {
   description: string;
   adress: string;
 };
+
+export type Faq = {
+  id: number;
+} & FaqDescription;
+
+export type FaqDescription = {
+  question: string;
+  reponse: string;
+};

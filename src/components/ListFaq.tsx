@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { getEvents } from "../api/evt";
-import { Event } from "../api/types";
-import ItemEvent from "./ItemEvent";
+import ItemFaq from "./ItemFaq";
+import { getFaqs } from "../api/faq";
+import { Faq } from "../api/types";
 
-const ListEvent = () => {
-  const [events, setEvents] = useState<Array<Event>>([]);
+const ListFaq = () => {
+  const [faqs, setFaqs] = useState<Array<Faq>>([]);
   const [loading] = useState(false);
 
-  async function _getEvents() {
-    const data = await getEvents();
-    setEvents(data);
+  async function _getFaqs() {
+    const data = await getFaqs();
+    setFaqs(data);
   }
   useEffect(() => {
-    _getEvents();
+    _getFaqs();
   }, []);
 
-  function renderItem(values: Event) {
+  function renderItem(values: Faq) {
     return (
       <div key={values.id}>
-        <ItemEvent {...values} />
+        <ItemFaq {...values} />
       </div>
     );
   }
@@ -33,7 +33,7 @@ const ListEvent = () => {
     );
   }
 
-  if (events.length === 0) {
+  if (faqs.length === 0) {
     return (
       <section className="hero">
         <div className="hero-body">
@@ -42,7 +42,7 @@ const ListEvent = () => {
       </section>
     );
   }
-  return <ul className="post-list">{events.map(renderItem)}</ul>;
+  return <ul className="post-list">{faqs.map(renderItem)}</ul>;
 };
 
-export default ListEvent;
+export default ListFaq;

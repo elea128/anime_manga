@@ -20,15 +20,15 @@ async function createEvent(post: EventDescription): Promise<Event> {
   // create a new post
   return {
     id: 1,
-    name: 'name',
-    description: 'description',
-    adress: 'adress'
-  }
+    name: "name",
+    description: "description",
+    adress: "adress",
+  };
 }
 
-async function deleteEvent(postID: Event['id']): Promise<Event['id']> {
+async function deleteEvent(postID: Event["id"]): Promise<Event["id"]> {
   // delete a existing post
-  return 1
+  return 1;
 }
 
 export { getEvent, getEvents, createEvent, deleteEvent };
