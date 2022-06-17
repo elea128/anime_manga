@@ -1,7 +1,6 @@
 import { Event, EventDescription } from "./types";
-import axios from "axios";
 
-const base_url = "http://localhost:3004/events";
+const base_url = "http://localhost:3004/event";
 
 async function getEvent(eventID: Event["id"]): Promise<Event> {
   // get a unique event
@@ -17,15 +16,19 @@ async function getEvents(): Promise<Array<Event>> {
   return data;
 }
 
-async function createEvent(event: EventDescription): Promise<Event> {
-  // create a new event
-  const { data } = await axios.post(`${base_url}`, event);
-  return data;
+async function createEvent(post: EventDescription): Promise<Event> {
+  // create a new post
+  return {
+    id: 1,
+    name: 'name',
+    description: 'description',
+    adress: 'adress'
+  }
 }
 
-async function deleteEvent(eventID: Event["id"]): Promise<Event["id"]> {
-  const { data } = await axios.delete(`${base_url}/${eventID}`);
-  return data;
+async function deleteEvent(postID: Event['id']): Promise<Event['id']> {
+  // delete a existing post
+  return 1
 }
 
 export { getEvent, getEvents, createEvent, deleteEvent };

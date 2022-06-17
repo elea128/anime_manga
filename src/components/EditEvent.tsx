@@ -5,6 +5,11 @@ import { getEvent, createEvent, deleteEvent } from "../api/evt";
 import { EventDescription, Event } from "../api/types";
 import Field from "../private/Field";
 
+type FormEvent =
+  | React.ChangeEvent<HTMLTextAreaElement>
+  | React.ChangeEvent<HTMLInputElement>
+  | React.ChangeEvent<HTMLSelectElement>
+
 type FormData = { name: string; value: string | undefined | Number };
 
 const formReducer = (state: Event | EventDescription, event: FormData) => {
@@ -22,25 +27,40 @@ const EditEvent = () => {
   let { id } = useParams(); // event id from url
   const navigate = useNavigate(); // create a navigate function instance
 
-  async function _getEvent(id: string) {
+  async function _getEvent(id: number) {
     const data = await getEvent(id);
     convertToFormData(data);
   }
   useEffect(() => {
-    //chaquef osi que l'id change
-    _getEvent(String(id));
+    //chaquef fois que l'id change
+    _getEvent(Number(id));
   }, [id]);
 
-  async function handleCreateEvent() {
-    // console.log(formData)
+  async function handleAddOrCreateEvent(
+    event: React.FormEvent<HTMLFormElement>
+  ) {
     // remove default reloading page
-    await createEvent(formData as Event);
-    navigate("/");
+    event.preventDefault()
+
+    // back to Home
+    navigate('/')
   }
 
-  async function handleDeletePost() {
+  function handleChange(event: FormEvent) {
+    //
+    const value =
+      event.target.name === 'userId'
+        ? Number(event.target.value)
+        : event.target.value
+    setFormData({
+      name: event.target.name,
+      value,
+    })
+  }
+
+  async function handleDeleteEvent() {
     // back to Home
-    await deleteEvent(String(id));
+    await deleteEvent(Number(id));
     navigate("/");
   }
 
@@ -58,7 +78,7 @@ const EditEvent = () => {
 
   return (
     <>
-      <form className="event-form" onSubmit={handleCreateEvent}>
+      <form className="event-form" onSubmit={handleAddOrCreateEvent}>
         <Field label="Nom de l'évènement">
           <input
             name="Name"
@@ -86,6 +106,18 @@ const EditEvent = () => {
             value={formData.adress}
           />
         </Field>
+
+        {!!id && (
+          <Field label="Extra actions">
+            <button
+              type="button"
+              className="button is-warning"
+              onClick={handleDeleteEvent}
+            >
+              Delete post
+            </button>
+          </Field>
+        )}
 
         <div className="field is-grouped is-grouped-centered">
           <p className="control">
