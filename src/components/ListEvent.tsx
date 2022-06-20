@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getEvents } from "../api/evt";
 import { Event } from "../api/types";
 import ItemEvent from "./ItemEvent";
+import Filtre from "./Filtre";
 
 const ListEvent = () => {
   const [events, setEvents] = useState<Array<Event>>([]);
@@ -15,11 +16,20 @@ const ListEvent = () => {
     _getEvents();
   }, []);
 
+
   function renderItem(values: Event) {
+    // const test = <ItemEvent {...values}/>
     return (
-      <div key={values.id}>
-        <ItemEvent {...values} />
-      </div>
+      <section>
+        {/* <div> <Filtre /></div> */}
+
+        <div key={values.id}>
+
+          <ItemEvent {...values} />
+        </div>
+
+      </section>
+
     );
   }
 
@@ -42,7 +52,7 @@ const ListEvent = () => {
       </section>
     );
   }
-  return <ul className="post-list">{events.map(renderItem)}</ul>;
+  return <ul className="post-list"><Filtre />{events.map(renderItem)}</ul>;
 };
 
 export default ListEvent;
