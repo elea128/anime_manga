@@ -43,62 +43,7 @@ const EditFaq = () => {
 
   return (
     <>
-      {/* <form className="faq-form" onSubmit={handleAddOrCreateEvent}>
-        <Field label="Nom de l'évènement">
-          <input
-            name="name"
-            className="input"
-            type="text"
-            placeholder="Nom de l'évènement"
-            value={formData.name}
-          />
-        </Field>
-        <Field label="Description">
-          <textarea
-            name="description"
-            className="textarea"
-            placeholder="Description de l'évènement ainsi que la date"
-            value={formData.description}
-          />
-        </Field>
 
-        <Field label="Lieu">
-          <input
-            name="adress"
-            className="input"
-            type="text"
-            placeholder="Adresse/Lien de l'évènement"
-            value={formData.adress}
-          />
-        </Field>
-
-        {!!id && (
-          <Field label="Extra actions">
-            <button
-              type="button"
-              className="button is-warning"
-              onClick={handleDeleteEvent}
-            >
-              Delete post
-            </button>
-          </Field>
-        )}
-
-        <div className="field is-grouped is-grouped-centered">
-          <p className="control">
-            <button type="submit" className="button is-primary">
-              Valider
-            </button>
-          </p>
-          <p className="control">
-            <Link to="/" className="button is-light">
-              Annuler
-            </Link>
-          </p>
-        </div>
-      </form> */}
-
-      {/* Retourner seulement les valeurs de chaque faq */}
       <div>
         <h3>Question</h3>
         <p>{formData.question}</p>

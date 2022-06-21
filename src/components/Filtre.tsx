@@ -1,58 +1,73 @@
-
+import axios from "axios";
+import { any, props } from "cypress/types/bluebird";
+import { data } from "cypress/types/jquery";
 import React, { useEffect, useState } from "react";
 import { getEvents } from "../api/evt";
-import { Event } from "../api/types";
-import ItemEvent from "./ItemEvent";
+// import Event from "./ItemEvent";
+// import ItemEvent from "./ItemEvent";
+import { Event } from "../api/types"
 
 function Filtre() {
 
-    // const [datas, setDatas] = useState([])
+    const [data, setData] = useState<Array<Event>>([])
+    const [value, setValue] = useState("");
 
-    // async function _getData() {
-    //     const data = await _getData();
-    //     setDatas(data);
-    // }
+    useEffect(() => {
+        loadEventData();
+    }, []);
 
-    // useEffect(() => {
-    //     fetch("http://localhost:3004/event")
-    //         .then((response) => response.json)
-    //         .then((json) => setDatas(json));
-    // }, []);
-    const fruit = {
-        "event": [{
-            "id": 1,
-            "name": "name 1",
-            "description": "desc 1",
-            "adress": "adresse du premier"
-        },
-        {
-            "id": 2,
-            "name": "Name 2",
-            "description": "desc 2",
-            "adress": "adresse du deuxieme"
-        }]
+    const loadEventData = async () => {
+        return await axios
+            .get("http://localhost:3004/event")
+            .then((response) => setData(response.data))
+            .catch((err) => console.log(err));
+    }
+
+    console.log("Data", data);
+
+    const handleSearch = async (e: any) => {
+        e.preventDefault();
+        return await axios.get(`http://localhost:3004/event?q=${value}`)
+            .then((response) => {
+                setData(response.data);
+                setValue("");
+            })
+            .catch((err) => console.log(err));
+
     };
 
-    // const result = words.filter(word => word.length > 6);
-
-    const [filter, setFilter] = useState('');
-
     return (
-        <div className="Filtre">
-            <p>
-                Type to filter the list:
-                <input id="filter"
-
-                    value={filter}
-                    onChange={event => setFilter(event.target.value)}
+        <section>
+            <form onSubmit={handleSearch}>
+                <input
+                    type="text"
+                    placeholder="Chercher un évènement"
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
                 />
-            </p>
-            <ul>
-                {fruit.filter(f => f.includes(filter) || filter === '')
-                    .map(f => <li key={f}>{f}</li>)}
-            </ul>
-        </div>
-    );
+                <button type="submit"> Rechercher </button>
+
+            </form>
+
+            <h1>Mes évènements</h1>
+            {data.length === 0 ? (
+                <div>
+                    <div> Aucun évènement trouvé... </div>
+                </div>
+            ) : (data.map((item, id) =>
+                <div key={id}>
+                    <div>
+                        <div>{item.id}</div>
+                        <div>{item.name}</div>
+                        <div>{item.description}</div>
+                        <div>{item.adress}</div>
+                    </div>
+
+                </div>
+            )
+            )}
+        </section>
+    )
 }
 
 export default Filtre;
