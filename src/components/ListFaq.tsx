@@ -17,9 +17,11 @@ const ListFaq = () => {
 
   function renderItem(values: Faq) {
     return (
-      <div key={values.id}>
-        <ItemFaq {...values} />
-      </div>
+      <>
+        <div key={values.id}>
+          <ItemFaq {...values} />
+        </div>
+      </>
     );
   }
 
@@ -37,12 +39,17 @@ const ListFaq = () => {
     return (
       <section className="hero">
         <div className="hero-body">
-          <p className="title">Aucun évènement pour le moment...</p>
+          <p className="title">Questions/réponses à venir...</p>
         </div>
       </section>
     );
   }
-  return <ul className="post-list">{faqs.map(renderItem)}</ul>;
+  return (
+    <ul className="post-list">
+      <h2>Questions les plus fréquentes</h2>
+      {faqs.map(renderItem)}
+    </ul>
+  );
 };
 
 export default ListFaq;
