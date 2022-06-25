@@ -1,0 +1,34 @@
+{
+  "event": [
+    {
+      "id": 1,
+      "name": "name 1",
+      "description": "desc 1",
+      "adress": "adresse du premier"
+    },
+    {
+      "id": 2,
+      "name": "Name 2",
+      "description": "desc 2",
+      "adress": "adresse du deuxieme"
+    },
+    {
+      "id": 3,
+      "name": "Name 11",
+      "description": "desc 11",
+      "adress": "adresse du deuxieme"
+    }
+  ],
+  "faq": [
+    {
+      "id": 1,
+      "question": "question 1",
+      "reponse": "réponse 1"
+    },
+    {
+      "id": 2,
+      "question": "question 2",
+      "reponse": "réponse 2"
+    }
+  ]
+}
