@@ -23,6 +23,7 @@ async function createEvent(post: EventDescription): Promise<Event> {
     name: "name",
     description: "description",
     adress: "adress",
+    url: "url",
   };
 }
 

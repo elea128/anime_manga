@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getEvent, deleteEvent } from "../api/evt";
 import { EventDescription, Event } from "../api/types";
-import Field from "../private/Field";
+import "./editevent.css";
 
 type FormEvent =
   | React.ChangeEvent<HTMLTextAreaElement>
@@ -78,7 +78,60 @@ const EditEvent = () => {
 
   return (
     <>
-      <form className="event-form" onSubmit={handleAddOrCreateEvent}>
+      <div id="container"></div>
+      <div className="contact-wrapper">
+        <div className="envelope {{ flipCard ? 'active' : '' }}">
+          <div className="back paper"></div>
+          <div className="content">
+            <div className="form-wrapper">
+              <form>
+                <div className="top-wrapper">
+                  <div className="input">
+                    <label>Nom de l'évènement</label>
+                    <input type="text" name="name" value={formData.name} />
+                  </div>
+                  <div className="input">
+                    <label>Description</label>
+                    <input
+                      type="text"
+                      name="description"
+                      value={formData.description}
+                    />
+                  </div>
+                  <div className="input">
+                    <label>Lieu</label>
+                    <input type="text" name="lieu" value={formData.adress} />
+                  </div>
+                </div>
+                <div className="bottom-wrapper">
+                  <div className="input">
+                    <label>Email</label>
+                    <input type="text" name="email" />
+                  </div>
+                  <div className="input">
+                    <label>Message</label>
+                    <textarea name="message"></textarea>
+                  </div>
+                  <div className="submit">
+                    <Link to="/">
+                      <div
+                        className="submit-card"
+                        on-click="toggle('flipCard')"
+                      >
+                        Créer/modifier l'événement
+                      </div>
+                      <p className="control"></p>
+                    </Link>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div className="front paper"></div>
+        </div>
+      </div>
+
+      {/* <form className="event-form" onSubmit={handleAddOrCreateEvent}>
         <Field label="Nom de l'évènement">
           <input
             name="Name"
@@ -131,7 +184,7 @@ const EditEvent = () => {
             </Link>
           </p>
         </div>
-      </form>
+      </form> */}
     </>
   );
 };

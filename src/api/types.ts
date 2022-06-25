@@ -6,6 +6,7 @@ export type EventDescription = {
   name: string;
   description: string;
   adress: string;
+  url: string;
 };
 
 export type Faq = {
