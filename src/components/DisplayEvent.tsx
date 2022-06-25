@@ -50,7 +50,7 @@ const EditEvent = () => {
         </div>
         <div className="recipe-content">
           <p className="recipe-tags">
-            <span className="recipe-tag">Id:{formData.adress}</span>
+            <span className="recipe-tag">Id : {id}</span>
           </p>
 
           <Link to={`/`}>
