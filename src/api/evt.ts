@@ -1,6 +1,6 @@
 import { Event, EventDescription } from "./types";
 
-const base_url = "http://localhost:3004/event";
+const base_url = "https://anime-mon-manga.herokuapp.com/event";
 
 async function getEvent(eventID: Event["id"]): Promise<Event> {
   // get a unique event

@@ -1,6 +1,6 @@
 import { Faq, FaqDescription } from "./types";
 
-const base_url = "http://localhost:3004/faq";
+const base_url = "https://anime-mon-manga.herokuapp.com/faq";
 
 async function getFaq(faqID: Faq["id"]): Promise<Faq> {
   // get a unique event

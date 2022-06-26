@@ -60,7 +60,7 @@ const ItemFaq = (props: Faq) => {
           </Link>
         </p>
       </details>
-      <div className="card"></div>
+      <div className="card"></div> <br />
     </>
   );
 };
