@@ -18,7 +18,9 @@ Theme : anime et manga
 
 Lien repository GitHub : https://github.com/elea128/anime_manga.github.io
 
-Lien Netlify :
+Lien Netlify : https://anime-mon-manga.netlify.app
+
+Lien Heroku (lien db hébergée) : https://anime-mon-manga.herokuapp.com/ 
 
 Ports utilisés en local :
 
@@ -36,6 +38,7 @@ Ports utilisés en local :
 - GitFlow
 - Cypress
 - Gitmoji
+- Heroku, pour héberger la db en ligne
 
 ---
 
