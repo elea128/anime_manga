@@ -21,7 +21,7 @@ function Filtre() {
   };
   useEffect(() => {
     loadEventData();
-    setData(data)
+    setData(data);
   }, []);
 
   // console.log("Data", data);
