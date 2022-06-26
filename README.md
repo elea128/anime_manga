@@ -122,6 +122,9 @@ Patch redirection routes
 MAJ du Readme
 Ajout de la data
 
+### `Version 2.2.4`
+
+Modification du lien de redirection dans DisplayEvent "Save" -> "Edit"
 
 ---
 
