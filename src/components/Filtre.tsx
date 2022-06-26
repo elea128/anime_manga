@@ -15,7 +15,7 @@ function Filtre() {
 
   const loadEventData = async () => {
     return await axios
-      .get("http://localhost:3004/event")
+      .get("https://anime-mon-manga.herokuapp.com/event")
       .then((response) => setData(response.data))
       .catch((err) => console.log(err));
   };
@@ -29,7 +29,7 @@ function Filtre() {
   const handleSearch = async (e: any) => {
     e.preventDefault();
     return await axios
-      .get(`http://localhost:3004/event?q=${value}`)
+      .get(`https://anime-mon-manga.herokuapp.com/event?q=${value}`)
       .then((response) => {
         setData(response.data);
         setValue("");
@@ -39,7 +39,7 @@ function Filtre() {
 
   return (
     <>
-      <h1 className="title">Mes évènements</h1>
+      <h1 id="title" className="title">Mes évènements</h1>
 
       <br />
 

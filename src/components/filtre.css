@@ -200,3 +200,7 @@ a {
   width: clamp(320px, 35%, 480px);
   padding: 24px;
 }
+
+#title{
+  text-align: center;
+}
