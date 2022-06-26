@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/src/components/NotFoundPage.tsx"
+  status = 404
