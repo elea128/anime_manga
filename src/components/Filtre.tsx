@@ -39,7 +39,9 @@ function Filtre() {
 
   return (
     <>
-      <h1 id="title" className="title">Mes évènements</h1>
+      <h1 id="title" className="title">
+        Mes évènements
+      </h1>
 
       <br />
 

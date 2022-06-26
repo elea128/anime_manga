@@ -24,7 +24,6 @@ const ItemFaq = (props: Faq) => {
           </symbol>
         </svg>
       </div>
-
       <details open>
         <summary>
           <Link to={`/faq/${props.id}`} key={`key-${props.id}`}>
