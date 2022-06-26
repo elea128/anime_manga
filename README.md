@@ -20,7 +20,7 @@ Lien repository GitHub : https://github.com/elea128/anime_manga.github.io
 
 Lien Netlify : https://anime-mon-manga.netlify.app
 
-Lien Heroku (lien db hébergée) : https://anime-mon-manga.herokuapp.com/ 
+Lien Heroku (lien db hébergée) : https://anime-mon-manga.herokuapp.com/
 
 Ports utilisés en local :
 
@@ -100,6 +100,28 @@ Création de l'ensemble des fonctionnalités du projet sans style
 ### `Version 2.0.0`
 
 Mis en place du css sur l'ensemble des pages
+
+### `Version 2.0.1`
+
+Patch correctif pour sur Netlify + quelques correctifs de css
+
+### `Version 2.0.2`
+
+Déploiement de la db sur heroku pour Netlify
+
+### `Version 2.0.3`
+
+Corrections bugs redirections sur Netlify
+
+### `Version 2.0.4`
+
+Patch redirection routes
+
+### `Version 2.1.4`
+
+MAJ du Readme
+Ajout de la data
+
 
 ---
 
