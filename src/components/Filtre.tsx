@@ -1,23 +1,17 @@
 import axios from "axios";
-import { any, props } from "cypress/types/bluebird";
-import { data } from "cypress/types/jquery";
+// import { any, props } from "cypress/types/bluebird";
+// import { data } from "cypress/types/jquery";
 import React, { useEffect, useState } from "react";
-import { getEvents } from "../api/evt";
 // import Event from "./ItemEvent";
 // import ItemEvent from "./ItemEvent";
 import { Event } from "../api/types";
 import "./filtre.css";
 import search_bar from "./img/search.png";
-import anime from "./img/anime.jpeg";
 import { Link } from "react-router-dom";
 
 function Filtre() {
   const [data, setData] = useState<Array<Event>>([]);
   const [value, setValue] = useState("");
-
-  useEffect(() => {
-    loadEventData();
-  }, []);
 
   const loadEventData = async () => {
     return await axios
@@ -25,8 +19,12 @@ function Filtre() {
       .then((response) => setData(response.data))
       .catch((err) => console.log(err));
   };
+  useEffect(() => {
+    loadEventData();
+    setData(data);
+  }, []);
 
-  console.log("Data", data);
+  // console.log("Data", data);
 
   const handleSearch = async (e: any) => {
     e.preventDefault();
@@ -40,7 +38,7 @@ function Filtre() {
   };
 
   return (
-    <section className="main_section">
+    <>
       <h1 className="title">Mes évènements</h1>
 
       <br />
@@ -78,7 +76,7 @@ function Filtre() {
                 </div>
                 <div className="recipe-content">
                   <p className="recipe-tags">
-                    <span className="recipe-tag">Id:{item.id}</span>
+                    <span className="recipe-tag">Évènement n° : {item.id}</span>
                   </p>
 
                   <Link to={`/event/${id + 1}`}>
@@ -118,7 +116,7 @@ function Filtre() {
           </div>
         ))
       )}
-    </section>
+    </>
   );
 }
 
