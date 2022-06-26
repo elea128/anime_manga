@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import EditEvent from "./components/EditEvent";
-import NotFoundPage from "./components/NotFoundPage";
+import NotFoundPage from "./components/404";
 import DisplayEvent from "./components/DisplayEvent";
 import FaqEvent from "./components/FaqEvent";
 import ListFaq from "./components/ListFaq";
