@@ -9,25 +9,17 @@ import Filtre from "./components/Filtre";
 
 const App = () => (
   <BrowserRouter>
-
     <section>
       <ul id="ul_nav_bar">
         <Link to={`/`}>
-          <li className="navBar">
-            Accueil
-          </li>
+          <li className="navBar">Accueil</li>
         </Link>
         <Link to={`/event/new`}>
-          <li className="navBar">
-            Créer un évènement
-          </li>
+          <li className="navBar">Créer un évènement</li>
         </Link>
         <Link to={`/faq`}>
-          <li className="navBar">
-            FAQ
-          </li>
+          <li className="navBar">FAQ</li>
         </Link>
-
       </ul>
     </section>
     <div>
