@@ -28,7 +28,7 @@ const EditFaq = () => {
   useEffect(() => {
     //chaquef fois que l'id change
     _getFaq(Number(id));
-  }, [id]);
+  }, []);
 
   function convertToFormData(faq: Faq): void {
     // helper to convert event data into formData
