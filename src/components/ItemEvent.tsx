@@ -3,7 +3,9 @@ import { Event } from "../api/types";
 
 const ItemEvent = (props: Event) => {
   return (
+
     <Link to={`/event/${props.id}`} key={`key-${props.id}`}>
+
       <div className="card"></div>
       <div className="media-content">
         <p className="title is-4 post-title">{props.name}</p>

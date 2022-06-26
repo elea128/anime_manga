@@ -1,14 +1,14 @@
 import React, { useReducer } from "react";
 import { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { getEvent, deleteEvent } from "../api/evt";
+import { Link, useParams } from "react-router-dom";
+import { getEvent } from "../api/evt";
 import { EventDescription, Event } from "../api/types";
 import "./editevent.css";
 
-type FormEvent =
-  | React.ChangeEvent<HTMLTextAreaElement>
-  | React.ChangeEvent<HTMLInputElement>
-  | React.ChangeEvent<HTMLSelectElement>;
+// type FormEvent =
+//   | React.ChangeEvent<HTMLTextAreaElement>
+//   | React.ChangeEvent<HTMLInputElement>
+//   | React.ChangeEvent<HTMLSelectElement>;
 
 type FormData = { name: string; value: string | undefined | Number };
 
@@ -25,16 +25,16 @@ const EditEvent = () => {
     {} as Event | EventDescription
   );
   let { id } = useParams(); // event id from url
-  const navigate = useNavigate(); // create a navigate function instance
+  // const navigate = useNavigate(); // create a navigate function instance
+  useEffect(() => {
+    //chaquef fois que l'id change
+    _getEvent(Number(id));
+  }, [id]);
 
   async function _getEvent(id: number) {
     const data = await getEvent(id);
     convertToFormData(data);
   }
-  useEffect(() => {
-    //chaquef fois que l'id change
-    _getEvent(Number(id));
-  }, []);
 
   // async function handleAddOrCreateEvent(
   //   event: React.FormEvent<HTMLFormElement>

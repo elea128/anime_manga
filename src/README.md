@@ -1,41 +1,43 @@
-# INFRASTRUCTURE ET DEVOPS - RENDU 
+# INFRASTRUCTURE ET DEVOPS - RENDU
 
 ## Table des matières :
+
 1. Informations Générales
 2. Outils et logiciels
 3. À l'installation
 4. Versions
 5. Getting Started with Create React App
 
-***
+---
 
-## 1- Informations générales 
+## 1- Informations générales
 
 Membres du groupe : Julien Barri, Elea Brochin, Marie Fabre
 
-Theme : anime et manga 
+Theme : anime et manga
 
 Lien repository GitHub : https://github.com/elea128/anime_manga.github.io
 
-Lien Netlify : 
+Lien Netlify :
 
 Ports utilisés en local :
-* Port du site : 3000
-* Port de la BDD : 3004
 
-***
+- Port du site : 3000
+- Port de la BDD : 3004
+
+---
 
 ## 2- Outils et logiciels
 
-* Eslint, version 8.17.0
-* Husky, version 8.0.0
-* Nodemon, version 2.0.16
-* Prettier, version 2.7.1
-* GitFlow 
-* Cypress 
-* Gitmoji 
+- Eslint, version 8.17.0
+- Husky, version 8.0.0
+- Nodemon, version 2.0.16
+- Prettier, version 2.7.1
+- GitFlow
+- Cypress
+- Gitmoji
 
-***
+---
 
 ## 3- À l'installation
 
@@ -57,15 +59,16 @@ $ npm install
 $ npm install react-router-dom
 ```
 
-### `Ouvrir la base de données` : 
+### `Ouvrir la base de données` :
 
 Dans un second terminal :
+
 ```
 $ npm install -g json-server
 $ json-server --watch db.json --port 3004
 ```
 
-### `Ouvrir l'application` : 
+### `Ouvrir l'application` :
 
 Revenir dans le premier terminal sans fermer le second
 
@@ -73,8 +76,7 @@ Revenir dans le premier terminal sans fermer le second
 $ npm run start / $ npm start
 ```
 
-### `Récupération du code et passage sur la branch develop` : 
-
+### `Récupération du code et passage sur la branch develop` :
 
 ```
 $ git checkout .
@@ -84,21 +86,19 @@ $ git checkout develop
 
 Vous pouvez coder !
 
-***
-
+---
 
 ## 4- Versions
 
 ### `Version 1.0.0`
 
-Création de l'ensemble des fonctionnalités du projet sans style 
+Création de l'ensemble des fonctionnalités du projet sans style
 
 ### `Version 2.0.0`
 
 Mis en place du css sur l'ensemble des pages
 
-***
-
+---
 
 ## 5- Getting Started with Create React App
 

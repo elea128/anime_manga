@@ -28,7 +28,7 @@ const EditEvent = () => {
   useEffect(() => {
     //chaquef fois que l'id change
     _getEvent(Number(id));
-  }, []);
+  }, [id]);
 
   function convertToFormData(event: Event): void {
     // helper to convert event data into formData

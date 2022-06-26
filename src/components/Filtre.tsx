@@ -13,18 +13,18 @@ function Filtre() {
   const [data, setData] = useState<Array<Event>>([]);
   const [value, setValue] = useState("");
 
-  useEffect(() => {
-    loadEventData();
-  }, []);
-
   const loadEventData = async () => {
     return await axios
       .get("http://localhost:3004/event")
       .then((response) => setData(response.data))
       .catch((err) => console.log(err));
   };
+  useEffect(() => {
+    loadEventData();
+    setData(data)
+  }, []);
 
-  console.log("Data", data);
+  // console.log("Data", data);
 
   const handleSearch = async (e: any) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ function Filtre() {
   };
 
   return (
-    <section className="main_section">
+    <>
       <h1 className="title">Mes évènements</h1>
 
       <br />
@@ -76,7 +76,7 @@ function Filtre() {
                 </div>
                 <div className="recipe-content">
                   <p className="recipe-tags">
-                    <span className="recipe-tag">Id : {item.id}</span>
+                    <span className="recipe-tag">Évènement n° : {item.id}</span>
                   </p>
 
                   <Link to={`/event/${id + 1}`}>
@@ -116,7 +116,7 @@ function Filtre() {
           </div>
         ))
       )}
-    </section>
+    </>
   );
 }
 
