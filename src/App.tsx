@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import EditEvent from "./components/EditEvent";
 import NotFoundPage from "./components/NotFoundPage";
 import DisplayEvent from "./components/DisplayEvent";
@@ -9,17 +9,25 @@ import Filtre from "./components/Filtre";
 
 const App = () => (
   <BrowserRouter>
+
     <section>
       <ul id="ul_nav_bar">
-        <li>
-          <a href="/">Accueil</a>
-        </li>
-        <li>
-          <a href="/event/new">Créer un event</a>
-        </li>
-        <li>
-          <a href="/faq">F.A.Q.</a>
-        </li>
+        <Link to={`/`}>
+          <li className="navBar">
+            Accueil
+          </li>
+        </Link>
+        <Link to={`/event/new`}>
+          <li className="navBar">
+            Créer un évènement
+          </li>
+        </Link>
+        <Link to={`/faq`}>
+          <li className="navBar">
+            FAQ
+          </li>
+        </Link>
+
       </ul>
     </section>
     <div>

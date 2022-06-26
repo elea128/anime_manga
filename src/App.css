@@ -50,7 +50,7 @@ li {
   float: left;
 }
 
-li a {
+.navBar {
   display: block;
   color: white;
   text-align: center;
@@ -58,6 +58,7 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+.navBar:hover {
   background-color: #111;
 }
+
